@@ -4,14 +4,14 @@
   "description": "Generate an `index.js` file for each directory containing source code in a module",
   "main": "src/index.js",
   "bin": {
-    "indexgen": "bin/indexgen.js"
+    "exportgen": "bin/exportgen.js"
   },
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/voidvoxel/indexgen.git"
+    "url": "git+https://github.com/voidvoxel/exportgen.git"
   },
   "keywords": [
     "index.js",
@@ -20,9 +20,9 @@
   "author": "Ashlynn Juniper",
   "license": "MPL-2.0",
   "bugs": {
-    "url": "https://github.com/voidvoxel/indexgen/issues"
+    "url": "https://github.com/voidvoxel/exportgen/issues"
   },
-  "homepage": "https://github.com/voidvoxel/indexgen#readme",
+  "homepage": "https://github.com/voidvoxel/exportgen#readme",
   "dependencies": {
     "glob": "^11.0.0"
   }
