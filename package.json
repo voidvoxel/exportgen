@@ -1,0 +1,29 @@
+{
+  "name": "indexgen",
+  "version": "0.0.0",
+  "description": "Generate an `index.js` file for each directory containing source code in a module",
+  "main": "src/index.js",
+  "bin": {
+    "indexgen": "bin/indexgen.js"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voidvoxel/indexgen.git"
+  },
+  "keywords": [
+    "index.js",
+    "generator"
+  ],
+  "author": "Ashlynn Juniper",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/voidvoxel/indexgen/issues"
+  },
+  "homepage": "https://github.com/voidvoxel/indexgen#readme",
+  "dependencies": {
+    "glob": "^11.0.0"
+  }
+}
