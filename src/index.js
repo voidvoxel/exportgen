@@ -132,7 +132,7 @@ async function createIndexFile (
 }
 
 
-async function indexgen (
+async function exportgen (
     options = {}
 ) {
     // Define the options.
@@ -216,5 +216,5 @@ async function indexgen (
 
 
 module.exports = {
-    indexgen
+    exportgen
 };

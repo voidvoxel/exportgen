@@ -20,7 +20,7 @@ const {
 } = require("../src/util");
 
 const {
-    indexgen
+    exportgen
 } = require("../src");
 
 
@@ -49,7 +49,7 @@ async function main (
     //     ...excludedDirectories
     // );
 
-    await indexgen(
+    await exportgen(
         {
             modulePath,
             excludedDirectories,
