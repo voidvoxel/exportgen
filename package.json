@@ -1,6 +1,6 @@
 {
   "name": "indexgen",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Generate an `index.js` file for each directory containing source code in a module",
   "main": "src/index.js",
   "bin": {
