@@ -1,6 +1,6 @@
 {
   "name": "exportgen",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Generate an `index.js` file for each directory containing source code in a module",
   "main": "src/index.js",
   "bin": {
