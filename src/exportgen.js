@@ -1,12 +1,10 @@
 const path = require("path");
 
-
 const {
     glob
 } = require("glob");
 const { readdir, writeFile } = require("fs/promises");
 const CJSIndexFile = require("./CJSIndexFile");
-
 
 // Define glob patterns.
 const globPatterns = {};
@@ -15,7 +13,6 @@ const globPatterns = {};
 globPatterns.CJS_FILES = "**/*.cjs";
 globPatterns.JS_FILES = "**/*.js";
 globPatterns.MJS_FILES = "**/*.mjs";
-
 
 function isWithinExcludedDirectory (
     filePath = null,
@@ -37,7 +34,6 @@ function isWithinExcludedDirectory (
 
     return false;
 }
-
 
 async function getFilesWithExtension (
     options = {}
@@ -80,7 +76,6 @@ async function getFilesWithExtension (
     return filteredFilePaths;
 }
 
-
 async function getDirectories (
     ...filePaths
 ) {
@@ -98,7 +93,6 @@ async function getDirectories (
 
     return directories;
 }
-
 
 async function createIndexFile (
     options = {}
@@ -130,7 +124,6 @@ async function createIndexFile (
 
     return indexFilePath;
 }
-
 
 async function exportgen (
     options = {}
