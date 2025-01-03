@@ -20,12 +20,14 @@ function isWithinExcludedDirectory (
 ) {
     filePath ??= process.cwd();
 
+    filePath = path.resolve(filePath);
+
     for (
         const excludedDirectory of excludedDirectories
     ) {
         if (
             filePath.startsWith(
-                excludedDirectories
+                path.resolve(excludedDirectory)
             )
         ) {
             return true;
