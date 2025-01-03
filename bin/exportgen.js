@@ -23,7 +23,17 @@ const {
 const {
     exportgen
 } = require("../src");
+const { readFile } = require("fs/promises");
 
+async function readConfigFromPackageJSON () {
+    const packageJSONPath = path.join(process.cwd(), "package.json");
+
+    const packageJSON = JSON.parse(await readFile(packageJSONPath, "utf-8"));
+
+    const config = packageJSON.exportgen;
+
+    return config;
+}
 
 async function main (
     args
@@ -40,9 +50,15 @@ async function main (
     //         x => path.resolve(x)
     //     );
 
-    const excludedDirectories = resolvePathsSync(
-        directories
-    );
+    let excludedDirectories = [ ...directories ];
+
+    const config = await readConfigFromPackageJSON();
+
+    if (config && config.exclude && config.exclude.length >= 1) {
+        excludedDirectories.push(...config.exclude);
+    }
+
+    excludedDirectories = resolvePathsSync(...excludedDirectories);
 
     const verbose = false;
 
