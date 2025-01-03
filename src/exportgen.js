@@ -14,29 +14,6 @@ globPatterns.CJS_FILES = "**/*.cjs";
 globPatterns.JS_FILES = "**/*.js";
 globPatterns.MJS_FILES = "**/*.mjs";
 
-function isWithinExcludedDirectory (
-    filePath = null,
-    excludedDirectories = []
-) {
-    filePath ??= process.cwd();
-
-    filePath = path.resolve(filePath);
-
-    for (
-        const excludedDirectory of excludedDirectories
-    ) {
-        if (
-            filePath.startsWith(
-                path.resolve(excludedDirectory)
-            )
-        ) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
 async function getFilesWithExtension (
     options = {}
 ) {
@@ -56,26 +33,15 @@ async function getFilesWithExtension (
     const filePaths = await glob(
         globPattern,
         {
-            ignore: "node_modules/**"
+            ignore: [
+                "node_modules/**",
+                ...excludedDirectories.map(directory => directory + "/**")
+            ]
         }
     );
 
-    // Filter the list to exclude any files located within excluded directories.
-    const filteredFilePaths = [];
-
-    for (
-        const filePath of filePaths
-    ) {
-        let isExcluded = isWithinExcludedDirectory(
-            filePath,
-            excludedDirectories
-        );
-
-        if (!isExcluded)
-            filteredFilePaths.push(filePath);
-    }
-
-    return filteredFilePaths;
+    // Return the file paths.
+    return filePaths;
 }
 
 async function getDirectories (
