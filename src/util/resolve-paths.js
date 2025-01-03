@@ -12,14 +12,14 @@ function resolvePathsSync (
 ) {
     // If no paths were provided, return `null`.
     if (filePaths.length === 0)
-        return null;
+        return [];
 
     // If 1 path was provided, return a `string`.
     if (filePaths.length === 1) {
         const filePath = filePaths[0];
 
         if (typeof filePath === "string")
-            return path.resolve(filePaths[0]);
+            return [ path.resolve(filePaths[0]) ];
         else if (typeof filePath === "object")
             filePaths = Object.values(filePaths[0]);
     }
