@@ -7,6 +7,7 @@
     "exportgen": "bin/exportgen.js"
   },
   "scripts": {
+    "exportgen": "node bin/exportgen.js bin",
     "test": "jest"
   },
   "repository": {
